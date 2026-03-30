@@ -136,7 +136,7 @@ Get your keys:
 
 ## 💡 Use Cases
 
-- Students generating presentation drafts from lecture notes
+- Students generating presentation drafts from cluster of codes
 - Professionals turning reports into slide decks instantly
 - Anyone who dreads making PowerPoints from scratch
 
