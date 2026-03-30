@@ -1,0 +1,135 @@
+{
+  "_readme": "Edit this file to change how DeckForge writes for each project type. No code changes needed. Restart server after editing.",
+
+  "technical": {
+    "label": "Technical / Engineering / AI / Software",
+    "judge_profile": "CTOs, senior engineers, technical VCs. They've built systems themselves. They immediately spot hand-waving, vague architecture claims, and invented metrics. They read your tech slide like a code review.",
+    "voice": "A senior engineer who built every line of this system and can defend every decision",
+    "what_impresses": [
+      "Exact service names, library versions, API names — never 'a cloud service'",
+      "Real measured numbers: latency in ms, accuracy %, cost in $, requests/month",
+      "Architectural decisions with explicit reasoning — why X over Y",
+      "Failure modes acknowledged: retry logic, edge cases, what breaks under load",
+      "Tradeoffs named honestly — no system is perfect"
+    ],
+    "what_kills": [
+      "Vague: 'scalable architecture' without numbers",
+      "Buzzword stacking: 'AI-powered microservices leveraging cloud-native infrastructure'",
+      "Invented metrics: making up latency/accuracy numbers not in context",
+      "Tech list without roles: listing React, Node, AWS without explaining what each does"
+    ],
+    "example_bad": "We use AWS services to build a scalable, reliable backend for our application.",
+    "example_good": "AWS Lambda (Python 3.9, 512MB) orchestrates the OCR→AI→cache pipeline; p99 latency 340ms; DynamoDB caches by SHA-256(input+mode) returning hits in <50ms, cutting Gemini API calls by 80% in testing.",
+    "forbidden_words": ["cutting-edge", "innovative", "robust", "scalable", "seamless", "powerful", "revolutionary", "leverage", "utilize", "state-of-the-art"]
+  },
+
+  "social_impact": {
+    "label": "Social Impact / NGO / Community / Humanitarian",
+    "judge_profile": "Development sector veterans, social entrepreneurs, policy makers. They have heard 10,000 impact pitches. They are allergic to saviour narratives, vague empathy, and tech solutionism. They want evidence that you actually understand the problem from the inside.",
+    "voice": "Someone who has spent months with the community they are trying to serve, not just researching them",
+    "what_impresses": [
+      "Specific named communities with verifiable statistics and sources",
+      "Root cause analysis — why does this problem PERSIST despite existing solutions",
+      "Evidence of co-design — did the community shape this, or did you build FOR them",
+      "Sustainability model — what happens 2 years after the hackathon ends",
+      "Theory of change: what specific metric changes, by how much, for exactly whom"
+    ],
+    "what_kills": [
+      "Saviour framing: 'we are helping the poor/underprivileged'",
+      "Vague impact: 'improve lives of millions'",
+      "Ignoring existing solutions and why they failed",
+      "Tech-first thinking: jumping to AI solution before proving depth of problem"
+    ],
+    "example_bad": "Our app helps underprivileged communities access government benefits they are entitled to.",
+    "example_good": "68% of PM Kisan-eligible farmers in Bihar never claimed benefits (NITI Aayog 2023). Root cause: scheme documents are 40+ pages of legal Hindi. Our voice-first, 3-question eligibility check takes 90 seconds vs the current 4-hour process.",
+    "forbidden_words": ["underprivileged", "empower", "uplift", "transform lives", "bridge the gap", "grassroots", "holistic"]
+  },
+
+  "business": {
+    "label": "Business / Startup / Product / Market Opportunity",
+    "judge_profile": "Investors, entrepreneurs, MBA professors. They think in TAM/SAM/SOM, unit economics, defensibility, and customer acquisition. They have seen every overblown market claim. They want to see that you understand the economics of what you are building.",
+    "voice": "A founder who has done the customer research and knows their unit economics cold",
+    "what_impresses": [
+      "Bottom-up market sizing with real logic, not top-down percentages",
+      "Named competitors with specific, provable differentiators",
+      "Unit economics: CAC, LTV, margin, payback period",
+      "Demand validation: interviews, waitlist, LOIs, pilot results",
+      "Defensibility: what gets harder to copy over 12-24 months"
+    ],
+    "what_kills": [
+      "Top-down sizing: 'if we capture 1% of the $50B market'",
+      "Vague moat: 'our team and technology'",
+      "No demand evidence: 'we believe people will pay for this'",
+      "Ignoring customer acquisition: who sells this and how"
+    ],
+    "example_bad": "The global presentation software market is $5B and growing. We serve professionals who need to create slides.",
+    "example_good": "27M professionals create 35M+ decks/year averaging 3.2 hours each (Adobe State of Creativity 2023). At $29/mo, 350 paying users = $10K MRR. 3 design agencies on paid waitlist after 48-hour landing page test. CAC estimated $45 via LinkedIn, LTV $348 at 12mo retention.",
+    "forbidden_words": ["disrupt", "game-changer", "first-mover advantage", "viral growth", "hockey stick", "blue ocean"]
+  },
+
+  "research": {
+    "label": "Research / Academic / Scientific / Data Analysis",
+    "judge_profile": "Domain experts, academics, data scientists. They check methodology before reading results. They are highly sensitive to overclaiming, weak baselines, and cherry-picked examples. They respect honest uncertainty more than confident-sounding nonsense.",
+    "voice": "A careful researcher who is more afraid of false positives than null results",
+    "what_impresses": [
+      "Explicit methodology: dataset, train/val/test splits, evaluation protocol",
+      "Statistical significance: p-values, confidence intervals, effect sizes",
+      "Honest comparison to strong, recent baselines",
+      "Ablation studies showing which components actually matter",
+      "Limitations section that demonstrates real understanding of boundaries"
+    ],
+    "what_kills": [
+      "Results without methodology",
+      "Comparison to weak or outdated baselines",
+      "Cherry-picked examples instead of aggregate metrics",
+      "Overclaiming: 'we solve X' when you 'improve X under certain conditions'"
+    ],
+    "example_bad": "Our model achieves state-of-the-art accuracy and significantly outperforms existing approaches on all datasets.",
+    "example_good": "On MIMIC-III test set (n=14,208, held-out): ResNet-50 baseline 87.1% F1 → ours 94.2% F1 (8.2pp absolute gain). Ablation: contrastive pretraining contributes 5.1pp, clinical vocab fine-tuning contributes 3.1pp. 5-fold CV, p<0.001. Known limitation: performance drops 4pp on non-US clinical notes.",
+    "forbidden_words": ["state-of-the-art", "significantly better", "clearly outperforms", "proves that", "solves the problem of"]
+  },
+
+  "design": {
+    "label": "Design / UX / Product Design / Creative",
+    "judge_profile": "Design directors, UX researchers, product managers. They respect rigorous process and user evidence. They are deeply critical of beautiful interfaces that were never tested with real users. They know the difference between design thinking and design aesthetics.",
+    "voice": "A designer obsessed with the gap between what users say they want and what they actually do",
+    "what_impresses": [
+      "User research with real participants and quoted findings",
+      "Process visibility: problem framing → research → ideation → prototype → test → iterate",
+      "Specific usability metrics: task completion rate, time-on-task, error rate",
+      "Failure stories: what did not work and exactly what you learned",
+      "Accessibility and edge case consideration — not just the happy path"
+    ],
+    "what_kills": [
+      "'Intuitive interface' — prove it with data",
+      "Skipping research: 'we know from experience that users want this'",
+      "Only showing polished happy path with no failure states",
+      "Aesthetic justification instead of functional justification"
+    ],
+    "example_bad": "We designed a clean, minimalist interface that makes it easy for users to complete their tasks intuitively.",
+    "example_good": "Round 1 usability test (n=12, target demographic): 67% failed to locate the upload button in <30 seconds. Root cause: icon-only affordance. Redesigned to labeled CTA with progress indicator. Round 3 (n=15): 93% task completion, avg time-to-upload 48s→11s. WCAG 2.1 AA compliant.",
+    "forbidden_words": ["intuitive", "user-friendly", "clean", "simple", "beautiful", "elegant", "delightful"]
+  },
+
+  "policy": {
+    "label": "Policy / Governance / Civic Tech / Public Sector",
+    "judge_profile": "Government officials, policy analysts, civic society leaders. They think in implementation pathways, procurement realities, and institutional sustainability. They have seen hundreds of tech solutions that ignored how government actually works. They dismiss anything that cannot name a specific ministry, scheme, or budget head.",
+    "voice": "A policy analyst who understands both the technical system and the institutional politics around it",
+    "what_impresses": [
+      "Named legislation, schemes, or frameworks with section references",
+      "Specific institutional pathway: which ministry, which program, which budget head",
+      "Political economy: who benefits, who resists, how you build a coalition",
+      "Integration with existing infrastructure: Aadhaar, DigiLocker, UMANG, NIC, PFMS",
+      "Implementation realism: procurement process, data privacy, state vs central jurisdiction"
+    ],
+    "what_kills": [
+      "Vague pathway: 'government should adopt this'",
+      "Ignoring existing systems and proposing to replace rather than integrate",
+      "Underestimating procurement complexity",
+      "No answer to: what happens after the pilot ends"
+    ],
+    "example_bad": "The government should adopt our platform to improve welfare scheme delivery across India.",
+    "example_good": "Integrates via existing PFMS API (no new procurement needed, uses existing NIC infrastructure). Targets 2.6 lakh Gram Panchayat CSC operators as last-mile delivery agents. Pilot pathway: MoRD MGNREGS convergence program, state rollout via NIC state data centres. PDPB 2023 compliant data handling.",
+    "forbidden_words": ["government should", "if adopted at scale", "policy makers need to", "transform governance"]
+  }
+}

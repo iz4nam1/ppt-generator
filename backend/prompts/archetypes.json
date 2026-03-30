@@ -1,0 +1,226 @@
+{
+  "_readme": "Each slide archetype defines: keywords (for matching), tier (1/2/3 = which AI), judge_expectation, structure, depth_test, and premium_locked (future paid features).",
+
+  "_tiers": {
+    "1": "Most critical slides — Gemini + Groq race in parallel, pick best response",
+    "2": "Important slides — Groq 70b (great quality, reliable)",
+    "3": "Supporting slides — Cerebras (fast, unlimited free tier)"
+  },
+
+  "_premium_locked_features": {
+    "image_gen": "AI-generated diagram/visual for this slide — future Tier 2+ paid feature",
+    "web_search": "Live competitor/market data pulled from web — future Pro feature",
+    "financial_model": "Auto-built financial projection table — future Pro feature",
+    "image_edit": "Upload screenshot and AI enhances/annotates it — future Pro feature"
+  },
+
+  "problem": {
+    "keywords": ["problem", "challenge", "pain point", "issue", "gap", "need", "barrier", "problem statement"],
+    "tier": 1,
+    "premium_locked": ["image_gen"],
+    "judge_expectation": "Judges want to feel the WEIGHT of the problem before the solution. They should be slightly uncomfortable by the end. If they can say 'that is not actually a big problem', you failed this slide.",
+    "structure": [
+      "SCALE: How many people affected? Real statistic with source. Named population, not 'millions'.",
+      "ROOT CAUSE: Why does this problem persist DESPITE existing solutions? What is the underlying reason?",
+      "EXISTING FAILURES: Name 1-2 existing solutions and explain exactly why they are insufficient.",
+      "COST OF INACTION: What keeps happening — economically, socially, personally — if nothing changes?"
+    ],
+    "depth_test": "After reading this slide, would a skeptical judge say 'okay that is actually a serious problem'? If not, add more evidence.",
+    "line_format": "Each line should either be a statistic, a named failure, or a concrete consequence. No vague statements."
+  },
+
+  "solution": {
+    "keywords": ["solution", "idea", "concept", "about", "brief about", "overview", "what we built", "our approach", "our solution"],
+    "tier": 1,
+    "premium_locked": ["image_gen"],
+    "judge_expectation": "Judges want to immediately understand: what IS it, HOW does it work, and WHY is this approach better than the obvious alternative. They should be able to describe your solution to someone else after reading this slide.",
+    "structure": [
+      "WHAT: One crisp sentence — what the product IS and exactly who it is for.",
+      "HOW: The core mechanism step by step. Not 'AI analyses your data' — exactly WHICH AI, doing WHAT to WHICH data, producing WHAT output.",
+      "KEY INSIGHT: What makes this work where existing approaches failed? The non-obvious thing.",
+      "OUTCOME: What specifically changes for the user? Before vs after in concrete terms."
+    ],
+    "depth_test": "Could a developer build a rough version of this from your description alone? That is the target level of specificity.",
+    "line_format": "Lead with the WHAT. Follow with mechanism. End with outcome. Avoid adjectives."
+  },
+
+  "features": {
+    "keywords": ["feature", "offering", "capability", "function", "what it does", "list of features", "key features"],
+    "tier": 2,
+    "premium_locked": [],
+    "judge_expectation": "Judges check: does the feature set actually solve what was promised in the problem slide? They spot padding (features that do not map to the problem) immediately.",
+    "structure": [
+      "4-5 features. Format for each: [Feature Name]: [exact mechanism] → [specific user benefit]",
+      "Order by importance to the CORE use case, not by what is easiest to explain.",
+      "Each feature should directly address a specific component of the problem stated.",
+      "Include at least one feature showing thoughtfulness about edge cases or accessibility."
+    ],
+    "depth_test": "Do your features map 1-to-1 to the problems you stated? If you have a feature with no corresponding problem, remove it.",
+    "line_format": "Feature name first, then colon, then mechanism, then arrow, then benefit. Be specific about the mechanism."
+  },
+
+  "architecture": {
+    "keywords": ["architect", "infrastructure", "system design", "technical design", "how it is built", "architecture diagram"],
+    "tier": 1,
+    "premium_locked": ["image_gen"],
+    "judge_expectation": "Technical judges read architecture slides like code reviews. They want every component named, every connection explained, every failure mode considered. Generic diagrams with boxes and arrows get dismissed.",
+    "structure": [
+      "LAYERS: Client → API Gateway → Compute → Data → External Services. Name each layer.",
+      "COMPONENTS: For each component — exact technology, version, specific role, why THIS tech over the obvious alternative.",
+      "DATA FLOW: How does data move through the system from user action to final output?",
+      "KEY DECISION: Name one major architectural decision and the tradeoff it involves."
+    ],
+    "depth_test": "Could a new engineer join the team and understand the full system from this slide? That is the standard.",
+    "line_format": "Name the component first. Then its technology. Then its role. Then one sentence of reasoning."
+  },
+
+  "technology": {
+    "keywords": ["technolog", "tech stack", "tools used", "services used", "built with", "technologies utilized", "tools and technologies"],
+    "tier": 2,
+    "premium_locked": [],
+    "judge_expectation": "Every technology listed needs a BECAUSE. A list of logos or names without reasoning is a resume, not an argument. Judges want deliberate choices, not random framework adoption.",
+    "structure": [
+      "Group by function: AI/ML | Cloud/Infrastructure | Frontend | Backend | Data",
+      "Each entry: [Name + version] — [exact role in THIS project] — [why over the obvious alternative]",
+      "Highlight any non-obvious choices with explicit reasoning.",
+      "Note any known technical risks and how you have mitigated them."
+    ],
+    "depth_test": "For every technology listed, a judge could ask 'why not just use X instead?' — does your slide already answer that?",
+    "line_format": "Technology name and version first. Role second. Reasoning third. Keep each to one line."
+  },
+
+  "cost": {
+    "keywords": ["cost", "budget", "price", "financ", "economics", "monetiz", "revenue", "business model", "estimated implementation cost"],
+    "tier": 2,
+    "premium_locked": ["financial_model"],
+    "judge_expectation": "Judges want a line-by-line breakdown, not round estimates. They are checking whether you have actually thought about the economics or are just handwaving. Vague cost estimates signal that you have not built this.",
+    "structure": [
+      "Break down EVERY cost component with actual figures — not ranges.",
+      "Show TWO scenarios: current/prototype cost and 10x scale cost.",
+      "List any free tier optimisations being used and their specific limits.",
+      "If business model: pricing, CAC estimate, LTV estimate, path to break-even."
+    ],
+    "depth_test": "Would a CFO accept this as a first-draft budget? That level of specificity is what is needed.",
+    "line_format": "Cost item first. Then amount. Then what it buys. Then the scale assumption."
+  },
+
+  "impact": {
+    "keywords": ["impact", "outcome", "result", "benefit", "value", "change", "difference", "social impact"],
+    "tier": 1,
+    "premium_locked": [],
+    "judge_expectation": "Impact without numbers is marketing. Judges want a clear theory of change: what specific metric changes, by how much, for exactly whom, compared to what baseline.",
+    "structure": [
+      "For each stakeholder: [who] will experience [what specific change] [measured how] vs [specific baseline].",
+      "Short-term outcomes (0-6 months) vs long-term outcomes (1-3 years).",
+      "Any early evidence, pilots, proxies, or comparable programs that suggest the impact is real.",
+      "Honest: what does NOT change? What problem remains unsolved?"
+    ],
+    "depth_test": "Complete this sentence for your primary stakeholder: 'After using this, [specific person] will [specific measurable change] compared to [specific baseline].'",
+    "line_format": "Stakeholder first. Then the change. Then the measurement. Then the baseline comparison."
+  },
+
+  "process": {
+    "keywords": ["process", "flow", "workflow", "use case", "use-case", "how it works", "steps", "process flow", "user journey"],
+    "tier": 2,
+    "premium_locked": [],
+    "judge_expectation": "Judges trace the exact path from user action to system response. They are checking whether the system is actually functional, not just conceptual. Vague process descriptions ('AI analyses your data and provides recommendations') get dismissed.",
+    "structure": [
+      "Start with the user's FIRST action — what do they literally do? Click what? Type what? Upload what?",
+      "Trace EVERY system step with the exact technology handling each transition.",
+      "Include decision points: what happens with different inputs? What happens on failure?",
+      "End with the user outcome — what exactly do they receive, in what format, in how long?"
+    ],
+    "depth_test": "Could you implement this flow from this description alone without asking any follow-up questions?",
+    "line_format": "Action or component first. Then what it does. Then what it produces. Use arrows or 'then' to show sequence."
+  },
+
+  "performance": {
+    "keywords": ["performance", "benchmark", "metric", "latency", "speed", "accuracy", "benchmarking", "prototype performance", "results"],
+    "tier": 2,
+    "premium_locked": [],
+    "judge_expectation": "Judges have seen too many cherry-picked demos. They want reproducible, comparable results with methodology stated first. Numbers without context ('94% accuracy') mean nothing.",
+    "structure": [
+      "METHODOLOGY: What environment, what sample size, how measured, what was controlled for.",
+      "HEADLINE METRIC: The number, but also what it means in practical terms.",
+      "COMPARISON: vs your own baseline, vs a named competitor or industry standard.",
+      "HONEST LIMITS: Worst-case performance, edge cases, what the system struggles with."
+    ],
+    "depth_test": "Could another team reproduce your benchmark from this description alone?",
+    "line_format": "Metric name first. Then value. Then context. Then comparison. One claim per line."
+  },
+
+  "roadmap": {
+    "keywords": ["future", "roadmap", "next", "plan", "phase", "development", "upcoming", "future development", "additional details"],
+    "tier": 3,
+    "premium_locked": [],
+    "judge_expectation": "Judges check: have you thought beyond the demo? They look for realistic timelines, awareness of scaling challenges, and logical dependency chains. Phase 2 should be impossible without Phase 1.",
+    "structure": [
+      "Phase 1 (0-3 months): specific features with specific completion criteria, not vague goals.",
+      "Phase 2 (3-12 months): scaling and expansion, with key dependencies and risks named.",
+      "Phase 3 (12+ months): vision that connects back to the original problem statement.",
+      "For each phase: what must be true (technical, business, regulatory) for it to succeed."
+    ],
+    "depth_test": "Is there a logical dependency chain? Could someone challenge any phase ordering and be wrong?",
+    "line_format": "Phase label first. Then the specific milestone. Then one dependency or prerequisite."
+  },
+
+  "wireframe": {
+    "keywords": ["wireframe", "mockup", "prototype", "screenshot", "ui", "ux", "screen", "interface", "snapshots", "mock diagram"],
+    "tier": 3,
+    "premium_locked": ["image_edit"],
+    "judge_expectation": "Judges want to understand the UX well enough to evaluate whether it actually solves the problem. They are not just evaluating aesthetics — they are evaluating whether the interface makes the solution accessible to real users.",
+    "structure": [
+      "Walk through the PRIMARY user journey screen by screen in sequence.",
+      "For each screen: what the user sees, what they can interact with, what information is displayed.",
+      "Name specific UX decisions and their rationale — why this layout, why this copy.",
+      "Note accessibility features, error states, and edge case handling."
+    ],
+    "depth_test": "Could a developer build this interface from your description without a design file?",
+    "line_format": "Screen or action first. Then what the user sees. Then what they can do. Then the design rationale."
+  },
+
+  "team": {
+    "keywords": ["team", "member", "founder", "who we are", "our team", "team details"],
+    "tier": 3,
+    "premium_locked": [],
+    "judge_expectation": "Judges are evaluating one thing: can THIS team execute THIS specific idea? Generic credentials do not answer that. They want to see direct qualification for this specific problem.",
+    "structure": [
+      "Name + specific role IN THIS PROJECT (not generic title).",
+      "1-2 experiences that DIRECTLY qualify them for their role here — not general credentials.",
+      "Any domain expertise that is non-obvious but crucial for this specific problem.",
+      "Team composition check: does the skillset actually cover what this project needs?"
+    ],
+    "depth_test": "After reading this, would a judge think 'this is the right team for this specific problem'? Not just a good team generally.",
+    "line_format": "Name and role first. Then the qualifying experience. One person per line."
+  },
+
+  "assets": {
+    "keywords": ["asset", "repo", "github", "demo", "link", "video", "deliverable", "submission", "prototype assets"],
+    "tier": 3,
+    "premium_locked": [],
+    "judge_expectation": "Judges want to independently verify your work. Broken links, vague descriptions, or missing credentials are immediate red flags. Every claim you have made should be verifiable from these assets.",
+    "structure": [
+      "Every deliverable with its exact URL — no placeholders.",
+      "What judges will FIND at each link: specific files, what is implemented, what is not.",
+      "How to run or test the prototype: exact steps, not 'clone and run'.",
+      "Any credentials, API keys, or setup required to access the demo."
+    ],
+    "depth_test": "Could a judge independently verify your entire submission in under 10 minutes from this slide?",
+    "line_format": "Asset name first. Then exact URL. Then one sentence of what is there."
+  },
+
+  "generic": {
+    "keywords": [],
+    "tier": 2,
+    "premium_locked": [],
+    "judge_expectation": "Answer the slide question completely, specifically, and with evidence. State everything explicitly — judges should not have to infer anything.",
+    "structure": [
+      "Answer the question directly in the FIRST line — do not build up to it.",
+      "Support with specific details, numbers, or examples from your project.",
+      "Address the 'so what' — why does this answer matter for the project's success?",
+      "Add any context a judge needs to evaluate this claim fairly."
+    ],
+    "depth_test": "Could a judge ask a follow-up question that this slide does not already answer? Minimise that gap.",
+    "line_format": "Direct answer first. Evidence second. Implication third."
+  }
+}
